@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, scale } from "motion/react";
+import { motion } from "motion/react";
 import Card from "./Card";
 import { project } from "../model/data";
 const Portofolio = () => {
