@@ -5,6 +5,12 @@ const Card = ({ variant, source, name, tech }) => {
   return (
     <motion.div
       variants={variant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        amount: 0.5,
+        once: true,
+      }}
       className="rounded-xl ring-2 ring-white overflow-hidden"
     >
       <div className="overflow-hidden max-w-md w-full h-70 md:h-100">

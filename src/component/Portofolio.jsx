@@ -3,35 +3,20 @@ import { motion } from "motion/react";
 import Card from "./Card";
 import { project } from "../model/data";
 const Portofolio = () => {
-  const rows = [];
-  for (let i = 0; i < project.length; i += 3) {
-    rows.push(project.slice(i, i + 3));
-  }
-  const rowVariants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.9, ease: "easeOut" },
-    },
-  };
-
   const cardVariants = {
     hidden: {
       opacity: 0,
-      rotate: 5,
-      scale: 0,
+      y: 50,
+      scale: 0.95,
     },
 
     visible: {
       opacity: 1,
-      rotate: 0,
+      y: 0,
       scale: 1,
-
       transition: {
-        type: "spring",
-        bounce: 0.2,
-        duration: 1,
+        duration: 0.6,
+        ease: "easeOut",
       },
     },
   };
@@ -73,27 +58,20 @@ const Portofolio = () => {
           )}
         </div>
       </motion.div>
-      <div className="bg-black text-white p-10 ">
-        {rows.map((row, rowIndex) => (
-          <motion.div
-            key={rowIndex}
-            variants={rowVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.3, once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5"
-          >
-            {row.map((item, index) => (
+      <div className="bg-black text-white p-10">
+        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {project.map((data, index) => {
+            return (
               <Card
                 variant={cardVariants}
-                key={index + 1}
-                source={item.thumb}
-                name={item.name}
-                tech={item.tech}
+                key={index}
+                source={data.thumb}
+                name={data.name}
+                tech={data.tech}
               />
-            ))}
-          </motion.div>
-        ))}
+            );
+          })}
+        </motion.div>
       </div>
     </>
   );

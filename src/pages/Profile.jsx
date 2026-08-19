@@ -193,7 +193,7 @@ const Profile = () => {
           variants={container}
           initial="hidden"
           whileInView="visible"
-          viewport={{ amount: 0.3, once: true }}
+          viewport={{ amount: 0.8, once: true }}
           className="mt-10 flex flex-col gap-10"
         >
           <motion.div variants={thirdItem} className="flex items-center gap-10">
